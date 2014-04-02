@@ -145,13 +145,13 @@ public class StringUtils {
 
     public static String getULTGenerationString(String format, String ultformat) {
         if (format == null || ultformat == null) {
-            throw new SMCommonException("The format or ultformat is null.");
+            throw new LabsCommonException("The format or ultformat is null.");
         }
 
         // String[] ultsymbols = ultformat.split("[(,) ]+");
         String[] ultsymbols = ultformat.replaceAll("\\(", "").replaceAll("\\)", "").trim().split("[, ]+");
         if (ultsymbols == null || ultsymbols.length != 3) {
-            throw new SMCommonException("The ULT format '" + ultformat + "'is incorrect.");
+            throw new LabsCommonException("The ULT format '" + ultformat + "'is incorrect.");
         }
 
         String s = ultsymbols[0];
@@ -162,7 +162,7 @@ public class StringUtils {
 
         String[] formatsymbols = format.replaceAll("\\(", "").replaceAll("\\)", "").trim().split("[, ]+");
         if (formatsymbols == null) {
-            throw new SMCommonException("The format '" + format + "'is incorrect.");
+            throw new LabsCommonException("The format '" + format + "'is incorrect.");
         }
 
         for (int i = 0; i < formatsymbols.length; i++) {
